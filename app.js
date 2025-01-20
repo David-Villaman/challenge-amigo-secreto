@@ -48,38 +48,40 @@ comprueba si hay nombres en la lista, si no, muestra una alerta.
 Si hay nombres, selecciona uno aleatoriamente y lo muestra en la página.
 */
 function sortearAmigo() {
-    // Obtener la lista de amigos
+    // Obtiene la lista de amigos
     var list = document.getElementById("listaAmigos");
-    // Obtener los nombres de la lista
+    // Obtiene los nombres de la lista
     var nombres = list.getElementsByTagName("li");
-    // Comprobar si hay nombres en la lista
+    // Comprueba si hay nombres en la lista
     if (amigos.length === 0) {
         alert("No hay nombres en la lista.");
         return;
     }
-    // Obtener el elemento donde se mostrará el resultado
+    // Obtiene el elemento donde se mostrará el resultado
     var resultList = document.getElementById("resultado");
-    // Seleccionar un valor aleatorio de la lista
+    // Selecciona un valor aleatorio de la lista
     var valorAleatorio = Math.floor(Math.random() * nombres.length);
-    // Obtener el nombre seleccionado
+    // Obtiene el nombre seleccionado
     var nombreSeleccionado = amigos[valorAleatorio];
-    // Mostrar el nombre seleccionado en la página
+    // Muestra el nombre seleccionado en la página
     var li = document.createElement('li');
-    //Asignar el valor del campo de texto al elemento li
+    // Limpia la lista para mostrar solo el amigo secreto
+    list.innerHTML = ""
+    //Asigna el valor del campo de texto al elemento li
     li.textContent = "Tu amigo secreto es: " + nombreSeleccionado;
-    // Agregar el elemento li a la lista
+    // Agrega el elemento li a la lista
     resultList.appendChild(li);
 }
 /*
 Función que limpia la lista de amigos.
 */
 function limpiarLista() {
-    // Limpiar la lista de amigos
+    // Limpia la lista de amigos
     var list = document.getElementById("listaAmigos");
     list.innerHTML = "";
-    // Limpiar el resultado del sorteo
+    // Limpia el resultado del sorteo
     var resultList = document.getElementById("resultado");
     resultList.innerHTML = "";
-    // Limpiar el array de amigos
+    // Limpia el array de amigos
     amigos = [];
 }
